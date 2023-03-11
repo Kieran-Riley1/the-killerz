@@ -25,7 +25,7 @@ SECRET_KEY = 'xfqs#drf-c^_l!0oki#d&_oxvhxztfmfu0l3zwjtr5_4yi0h1a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS=['EC2_DNS_NAME']
 
 
 # Application definition
