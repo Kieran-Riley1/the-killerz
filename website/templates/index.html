@@ -1,0 +1,506 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" manifest="app.appcache">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'main.js' %}"></script>
+
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>The Killerz - The UK's No 1 Tribute to The Killers</title>
+        <meta name="robots" content="index"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The Killerz - The UK's No 1 Tribute to The Killers" />
+        <meta name="keywords" content="killerz, killers, thekillerz, thekillers, kopycat, kopycats, the kopycat killers, kopycat killers, fillers, the fillers, tribute, killers tribute, tribute band, the killerz, copycat, killers band, function band, wedding band, festival, for hire, tribute band uk, uk band, fake festival, tribfest, top tribute bands, fillers band, tribute singers, party band, world leading, tour, upcoming dates, gigs, agency band, hire, band hire, band promo, promo video, tribute acts management, the victims, victims" />
+        <meta name="author" content="The Killerz - The UK's No 1 Tribute to The Killers" />
+        <link rel="shortcut icon" href="../static/images/kz.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" href="./lightbox/lightbox.min.css"> -->
+    </head>
+
+    <body>
+
+        <header class="header">
+            <div class="container">
+                <nav class="nav">
+                    <a href="index.html" class="logo">
+                        <img id="logo" src="../static/images/logo-z.png">
+                    </a>
+                    <div class="span">
+                        <i class="fa fa-bars"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link" id="nav-btn">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#tour" class="nav-link" id="nav-btn">TOUR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#gallery" class="nav-link" id="nav-btn">GALLERY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link" id="nav-btn">ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#band" class="nav-link" id="nav-btn">BAND</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link" id="nav-btn">CONTACT</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="home">
+            <ul class="slideshow">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="hero">
+                <div class="container">
+                    <div class="main-heading">
+                        <img id="logo" src="../static/images/Killerz logo Backdrop Banner 1.png">
+                    </div>
+                </div>
+                <div class="social-buttons">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/killerstribute/"  target=”_blank”>
+                                <i class="fa fa-facebook social-btn" id="social" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/killerstribute/" target="_blank">
+                                <i class="fa fa-instagram social-btn" id="social" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/killerstribute?lang=en" target="_blank">
+                                <i class="fa fa-twitter social-btn" id="social" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCoEnQkjtg8qYyPMfEy3j0LQ" target="_blank">
+                                <i class="fa fa-youtube-play social-btn" id="social" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="marquee" id="marquee">
+                <marquee id="marquee-text" behavior="scroll" direction="left" duplicated: true>
+                </marquee>
+            </div>
+
+
+
+            <div class="tour" id="tour">
+                <div class="container-tour">
+                    <h5 class="section-head">
+                        <span class="heading">TOUR DATES</span>
+                    </h5>
+
+                    <table class="table" id="gig-table">
+                        {% for gig in gigs %}
+                            <tr>
+                                <td class="t-date">
+                                    {{ gig.date }}
+                                </td>
+                                <td class="t-name">
+                                    {{ gig.venue }}
+                                <br>
+                                <div id="breaker"><hr></div>
+                                </td>
+                                <td class="t-subname">
+                                    {{ gig.city }}
+                                    <br>
+                                    <p class="t-subname2">
+                                        {{ gig.location }}
+                                    </p>
+                                </td>
+                                {% if gig.ticket_link %}
+                                    <td>
+                                        <button class="table-btn" onclick="window.open('{{ gig.ticket_link }}')">
+                                            BOOK NOW
+                                        </button>
+                                    </td>
+                                {% else %}
+                                    <td>
+                                        <button class="table-btn" disabled>
+                                            COMING SOON
+                                        </button>
+                                    </td>
+                                {% endif %}
+                            <tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+            <div class="container-gallery" id="gallery">
+
+                <div class="gallery">
+                    <h5 class="section-head">
+                        <span class="heading">Gallery</span>
+                    </h5>
+                    <div class="row">
+                        <div class="column">
+                            <a class="example-image-link" href="../static/images/JCP01188.png" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.jamieparrphotography.com/' target='_blank'> Jamie Parr Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/JCP01188.png" alt="">
+                            </a>
+                            <a class="example-image-link" href="../static/images/m+l.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/m+l.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/mike (1).jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/mike (1).jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/Killerz - Matt Higgs-4897.jpg" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.matthiggsphotography.co.uk' target='_blank'>Matt Higgs Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/Killerz - Matt Higgs-4897.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/sam-lewis.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/sam-lewis.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/las vegas.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/las vegas.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/mike3.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/mike3.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/JCP01027.jpg" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.jamieparrphotography.com/' target='_blank'> Jamie Parr Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/JCP01027.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/dan.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/dan.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/crowd-shot.jpg" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.matthiggsphotography.co.uk' target='_blank'>Matt Higgs Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/crowd-shot.jpg">
+                            </a>
+                        </div>
+
+                        <div class="column">
+                            <a class="example-image-link" href="../static/images/LEWIS2.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/LEWIS2.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/confetti-todd.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/confetti-todd.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/AIDEN.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/AIDEN.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/people.png" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/people.png">
+                            </a>
+                            <a class="example-image-link" href="../static/images/mikefist.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/mikefist.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/mike-crowd.jpg" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.instagram.com/_biancavalentine/' target='_blank'>Bianca Valentine Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/mike-crowd.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/flamingo.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/flamingo.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/mike.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/mike.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/The_Killerz_BPhotography_July_2022-4.jpg" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.instagram.com/_biancavalentine/' target='_blank'>Bianca Valentine Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/The_Killerz_BPhotography_July_2022-4.jpg">
+                            </a>
+                        </div>
+                        <div class="column">
+                            <a class="example-image-link" href="../static/images/studley2.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/studley2.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/sam.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/sam.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/Killerz - Matt Higgs-1118.jpg" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.matthiggsphotography.co.uk' target='_blank'>Matt Higgs Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/Killerz - Matt Higgs-1118.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/JCP00982.png" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/JCP00982.png">
+                            </a>
+                            <a class="example-image-link" href="../static/images/studley3.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/studley3.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/wrexham.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/wrexham.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/lewis3.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/lewis3.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/man.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/man.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/somerset.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/somerset.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/lewis-guitar.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/lewis-guitar.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/dan1.png" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/dan1.png">
+                            </a>
+                            <a class="example-image-link" href="../static/images/confett.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/confett.jpg">
+                            </a>
+                        </div>
+
+                        <div class="column">
+                            <a class="example-image-link" href="../static/images/sam3.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/sam3.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/spaceman.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/spaceman.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/mike-spaceman2.jpg" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.jamieparrphotography.com/' target='_blank'> Jamie Parr Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/mike-spaceman2.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/band-shot.jpg" data-lightbox="gallery-set"
+                                data-title="<a href='https://www.instagram.com/_biancavalentine/' target='_blank'>Bianca Valentine Photography</a>">
+                                <img class="gall-img" loading="lazy" src="../static/images/band-shot.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/band-red.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/band-red.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/band2.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/band2.jpg ">
+                            </a>
+                            <a class="example-image-link" href="../static/images/AIDEN2.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/AIDEN2.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/carfest.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/carfest.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/sam-purple.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/sam-purple.jpg">
+                            </a>
+                            <a class="example-image-link" href="../static/images/visual.jpg" data-lightbox="gallery-set"
+                                data-title="The Killerz - The UK's No 1 Tribute to The Killers">
+                                <img class="gall-img" loading="lazy" src="../static/images/visual.jpg">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button id="view-more-btn">
+                        VIEW MORE &#x25BC;
+                    </button>
+                </div>
+            </div>
+
+            <div class="container-about" id="about">
+                <div class="about-us">
+                    <h5 class="section-head">
+                        <span class="heading">About Us</span>
+                        <span class="subheading"></span>
+                    </h5>
+
+                    <p class="about-us-text">
+                        The Killerz are one of only a few tribute acts to The Killers in the world and pride themselves on the overall likeness to the chart topping band. The music, the look,
+                        and the energy the band create will make you feel like you are watching the real thing! You will not find a more accurate interpretation to the award winning band than
+                        winners of a National Tribute Music Award!
+                        <br>
+                        <br>
+                        Performing around the UK and worldwide, the band continues to gather support from their audiences and more impressively The Killers supporters themselves, the Victims.
+                        Receiving rave reviews wherever they play and with a string of high profile clients including TV and radio presenter Chris Evans who enlisted the band to perform at his
+                        20,000 capacity Car Fest event in 2017, The Killerz played alongside famous names such as The Happy Mondays, Tom Odell and Busted. Other clients include Butlins, Tribfest,
+                        The Forum Music Centre, UK Tribute Festivals and Rock The Park.
+                        <br>
+                        <br>
+                        Described as being as exciting as the real thing by many fans, The Killerz continue to please followers with a set list of new and old chart hits that includes The Man,
+                        Run For Cover, Human and of course Mr Brightside. Visual backdrops, lighting effects and a blast of Killer confetti add to the magic the band provide for each and every show.
+                        With a true passion and love of what they play The Killerz aim is to bring the Las Vegas superstars to a venue near you!
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="container-meet" id="band">
+                <h5 class="section-head">
+                    <span class="heading">Meet the Band</span>
+                </h5>
+                <div class="flex">
+                    <button type="button" class="band-info" id="mike">
+                        <div class="flex-item featured-meet-the-band">
+                            <img src="../static/images/mike3.jpg" class="band-image">
+                            <h5 class="band-name">MIKE</h5><br>
+                            <p class="band-text">
+                                Mike has always had a huge passion for music. Starting off singing musical theatre and contemporary music, going on to pass all of his grades with a distinction.
+                                Since then he has been a solo performer and part of many different bands covering most genres at a pro level.
+                                <br>
+                                Mike also writes his own original music and has a large following on his iTunes and YouTube accounts. Mike's passion for music and love of The Killers is obvious
+                                to all when he's up on stage performing with The Killerz.
+                            </p>
+                        </div>
+                    </button>
+
+                    <button type="button" class="band-info" id="aiden">
+                        <div class="flex-item featured-meet-the-band">
+                            <img src="../static/images/AIDEN2.jpg" class="band-image">
+                            <h5 class="band-name">AIDEN</h5><br>
+                            <p class="band-text">
+                                Aiden first started learning to play the drums at the age of 7, showing a natural talent for it. He went on to study Pop Music & Music Technology at Wolverhampton
+                                University, passing his grade 8 exam.
+                                <br>
+                                Aiden has drummed in various local bands up until he joined The Killerz and has made his mark on the band with his drumming and technical skills over the years.
+                            </p>
+                        </div>
+                    </button>
+
+                    <button type="button" class="band-info" id="lewis">
+                        <div class="flex-item featured-meet-the-band">
+                            <img src="../static/images/LEWIS2.jpg" class="band-image">
+                            <h5 class="band-name">LEWIS</h5><br>
+                            <p class="band-text">
+                                Music runs through Lewis' blood. He learnt saxophone whilst at junior school and keyboard throughout high school, reaching grade 4. It was at the age of 17 that he started learning guitar, taking lessons and even being taught by legendary Killerz guitarist Paul Humphreys for a while before deciding to teach himself.
+                                <br>
+                                Lewis played in an originals college band before forming rock band Speaking in Shadows that he and band mate Sam played in for 8 years.
+                            </p>
+                        </div>
+                    </button>
+
+                    <button type="button" class="band-info" id="sam">
+                        <div class="flex-item featured-meet-the-band">
+                            <img src="../static/images/sam'.jpg" class="band-image">
+                            <h5 class="band-name">SAM</h5><br>
+                            <p class="band-text">
+                                Sam started playing bass at the age of 13. He studied music at school but has no formal training instead teaching himself everything he knows.
+                                <br>
+                                Sam played in various Midlands based rock bands throughout his teenage years. From 2010-2018 he played bass in successful unsigned band Speaking in Shadows with bandmate Lewis.
+                            </p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="container-form" id="contact">
+                <h5 class="section-head">
+                    <span class="heading">CONTACT US</span><br>
+                    <span class="subheading">For further information about a gig please use the mail form below. <br> Or email us at:<br><br>
+                        <a href="mailto:info@thekillerz.co.uk?Subject=The%20Killerz,%20Contact%20Form%20Email" target="_top">
+                            <strong class="link">
+                                info@thekillerz.co.uk
+                            </strong>
+                        </a>
+                    </span>
+                </h5>
+
+                <div class="form">
+                    <div class="form-row">
+                        <div class="form-column">
+                            <img src="../static/images/confetti-todd.jpg" class="form-image">
+                        </div>
+                        <div class="form-column">
+                            <form name="contact" id="form">
+
+                                <label for="name">NAME</label>
+                                <input type="text" id="name" name="name" placeholder="Type Here" required>
+
+                                <label for="email">EMAIL</label>
+                                <input type="email" id="email" name="email" placeholder="Type Here" required>
+
+                                <label for="phone" title="Optional">PHONE*</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Type Here">
+
+                                <label for="date" title="Optional">GIG DATE*</label>
+                                <input type="date" id="date" name="date" placeholder="Type Here" style="resize: none;">
+
+                                <label for="message">MESSAGE</label>
+                                <input type="text" cols="40" rows="5" id="message" name="message" placeholder="Type Here"
+                                    style="height: 70px; margin-bottom: 30px;" required>
+
+                                <input type="text" id="nice-try" name="nice-try" placeholder="Type Here">
+
+                                <input type="button" name="submit" class="button-submit" id="submit_btn" value="Submit">
+                            </form>
+
+                            <div id="success" hidden>
+                                <div class="success">
+                                    <img src="../static/images/Killerz logo Backdrop Banner 1.png" width="45%" height="auto"><br>
+                                    <p>Thanks for getting in touch with The Killerz, a member of the team will be in touch as soon as possible</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="footer-icons">
+                    <a href="https://www.facebook.com/killerstribute/"  target=”_blank”>
+                        <i class="fa fa-facebook social-btn" id="social" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/killerstribute/" target="_blank">
+                        <i class="fa fa-instagram social-btn" id="social" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com/killerstribute?lang=en" target="_blank">
+                        <i class="fa fa-twitter social-btn" id="social" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCoEnQkjtg8qYyPMfEy3j0LQ" target="_blank">
+                        <i class="fa fa-youtube-play social-btn" id="social" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="banner">
+                    <img src="../static/images/winner-banner.png" style="border-radius: 15px; min-width: 400px;" width="30%">
+                </div>
+
+            </footer>
+        </main>
+
+        <!-- <script src="./lightbox/lightbox-plus-jquery.min.js"></script> -->
+    </body>
+</html>
