@@ -106,7 +106,7 @@ ul {
     z-index: 999;
 }
 
-.header.active {
+.header .active {
     background-color: var(--nav);
 }
 
@@ -845,7 +845,7 @@ input[type=submit]:hover {
     color: var(--body);
     flex: 1;
     /* width: 50%; */
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     text-align: center;
 }
 
@@ -1005,7 +1005,7 @@ input[type=submit]:hover {
     .header{
         height: 10rem;
     }
-    .header.active{
+    .header .active{
         height: 6rem;
     }
 
